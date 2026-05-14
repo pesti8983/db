@@ -71,3 +71,27 @@ public class WordCount {
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }
+
+
+
+
+
+1. Start Hadoop (Local Mode)
+
+No need to start daemons for standalone mode.
+
+2. Compile the Java Program
+javac -classpath $(hadoop classpath) -d wordcount_classes WordCount.java
+3. Create JAR File
+jar -cvf wordcount.jar -C wordcount_classes/ .
+4. Prepare Input File
+mkdir input
+echo "hello world hello hadoop" > input/file.txt
+5. Run the Program
+hadoop jar wordcount.jar WordCount input output
+6. View Output
+cat output/part-r-00000
+Example Output
+hadoop 1
+hello 2
+world 1
