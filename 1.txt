@@ -1,0 +1,85 @@
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("data1.csv")
+
+df
+
+df.dtypes
+
+df.info
+
+df.describe()
+
+df.isnull()
+
+df.shape
+
+df.size
+
+df.index
+
+df.head()
+
+df.tail
+
+df.tail(n=5)
+
+df.columns
+
+df.columns.values
+
+df.index
+
+df.sort_index(axis=1,ascending=True)
+
+df.iloc[5]
+
+df[0:3]
+
+df.iloc[:,:]
+
+df.iloc[:8,:2]
+
+df.iloc[:,3]
+
+df.iloc[3:5,0:2]
+
+df.iloc[1,1]
+
+df['sepal_length']
+
+df['sepal_length'].iloc[5]
+
+cols_2_4=df.columns[2:4]
+df[cols_2_4]
+
+df[df.columns[2:4]].iloc[5:10]
+
+
+
+
+from sklearn import preprocessing
+min_max_scaler = preprocessing.MinMaxScaler()
+
+
+x=df.iloc[:,:4]
+
+x_scaled = min_max_scaler.fit_transform(x)
+
+df_normalized = pd.DataFrame(x_scaled)
+
+df_normalized 
+
+
+
+
+
+df['species'].unique()
+
+label_encoder = preprocessing.LabelEncoder()
+
+df['species']= label_encoder.fit_transform(df['species'])
+
+df['species'].unique()
+
